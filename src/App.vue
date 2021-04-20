@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-main>
+      <v-container>
+        <v-row
+          align="center"
+          justify="space-around"
+          class="mt-4"
+        >
+          <v-btn
+            depressed
+            color="primary"
+            to="/login"
+          >
+          ورود
+          </v-btn>
+          <v-btn
+            depressed
+            color="error"
+            to="/register"
+          >
+            ثبت نام
+          </v-btn>
+        </v-row>
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+
+  data: () => ({
+  }),
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import "../node_modules/@aasaam/noto-font/dist/font-face.css";
+  body {
+    direction: rtl;
+    margin: 0;
+    font-family: "aasaam-Noto", sans-serif;
+  }
+  .v-form,
+  .v-btn,
+  .v-card__text {
+    font-family: "aasaam-Noto", sans-serif;
+  }
 </style>
