@@ -11,12 +11,15 @@
         chips
         hint="گزینه خود را انتخاب نمایید"
         class="mb-4"
+        item-text="name"
         persistent-hint
-      ></v-select>
+      >
+      </v-select>
 
       <v-btn
         color="success"
         @click="submit"
+        to="/dashboard"
       >
         ورود
       </v-btn>
@@ -37,18 +40,28 @@
         ثبت نام
       </v-btn>
     </v-form>
-    <div v-if="role==='ادمین'">
-      <Admin></Admin>
-    </div>
-    <div v-if="role==='کاربر'">
-      <Member></Member>
-    </div>
+    <Dashboard>
+      <v-card v-if="role!==''"
+        class="mx-auto member-cnt mt-4"
+        max-width="344"
+      >
+        <v-card-text>
+          <div>
+            صفحه
+            {{ role }}
+          </div>
+          <p>
+            {{ role }}
+            محترم خوش آمدید
+          </p>
+        </v-card-text>
+      </v-card> 
+    </Dashboard>
   </div>
 </template>
 
 <script>
-  import Admin from "./Admin";
-  import Member from "./Member";
+  import Dashboard from "./Dashboard"
 
   export default {
     name: "Login",
@@ -57,13 +70,18 @@
       activedItem: "",
       role: "",
       states: [
-        "ادمین",
-        "کاربر"
+        {
+          name: "ادمین",
+          value: "admin"
+        },
+        {
+          name: "کاربر",
+          value: "member"
+        }
       ]
     }),
-    components :{
-      Admin,
-      Member
+    components: {
+      Dashboard
     },
     methods: {
       clearData() {
@@ -75,6 +93,5 @@
         this.role = localStorage.getItem("auth");
       }
     },
-    
   }
 </script>

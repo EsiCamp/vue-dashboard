@@ -7,20 +7,6 @@
           justify="space-around"
           class="mt-4"
         >
-          <v-btn
-            depressed
-            color="primary"
-            to="/login"
-          >
-          ورود
-          </v-btn>
-          <v-btn
-            depressed
-            color="error"
-            to="/register"
-          >
-            ثبت نام
-          </v-btn>
         </v-row>
         <router-view />
       </v-container>
@@ -31,9 +17,6 @@
 <script>
 export default {
   name: "App",
-
-  data: () => ({
-  }),
 };
 </script>
 
