@@ -48,7 +48,7 @@
       class="float-left"
       outlined
       color="indigo"
-      to="/login"
+      to="/"
     > 
       ورود
     </v-btn>
@@ -86,6 +86,7 @@
       signUp() {
         if (this.$refs.form.validate()) {
           alert("ثبت نام با موفقیت انجام شد");
+          return true;
         }
       },
     },
