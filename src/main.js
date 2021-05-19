@@ -5,8 +5,7 @@ import routes from './routes/routes'
 import vuetify from './plugins/vuetify';
 
 const router = new VueRouter({
-  routes,
-  mode: 'history',
+  routes
 });
 
 Vue.use(VueRouter);
